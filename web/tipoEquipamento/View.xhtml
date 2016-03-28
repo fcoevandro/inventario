@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTipoEquipamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTipoEquipamentoLabel_id}"/>
+                    <h:outputText value="#{tipoEquipamentoController.selected.id}" title="#{bundle.ViewTipoEquipamentoTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewTipoEquipamentoLabel_tipoEquipamento}"/>
+                    <h:outputText value="#{tipoEquipamentoController.selected.tipoEquipamento}" title="#{bundle.ViewTipoEquipamentoTitle_tipoEquipamento}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tipoEquipamentoController.destroyAndView}" value="#{bundle.ViewTipoEquipamentoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTipoEquipamentoEditLink}"/>
+                <br />
+                <h:commandLink action="#{tipoEquipamentoController.prepareCreate}" value="#{bundle.ViewTipoEquipamentoCreateLink}" />
+                <br />
+                <h:commandLink action="#{tipoEquipamentoController.prepareList}" value="#{bundle.ViewTipoEquipamentoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTipoEquipamentoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

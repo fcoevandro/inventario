@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateEquipamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateEquipamentoLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{equipamentoController.selected.id}" title="#{bundle.CreateEquipamentoTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateEquipamentoLabel_dependencia}" for="dependencia" />
+                    <h:selectOneMenu id="dependencia" value="#{equipamentoController.selected.dependencia}" title="#{bundle.CreateEquipamentoTitle_dependencia}" >
+                        <f:selectItems value="#{dependenciaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateEquipamentoLabel_tipoEquipamento}" for="tipoEquipamento" />
+                    <h:selectOneMenu id="tipoEquipamento" value="#{equipamentoController.selected.tipoEquipamento}" title="#{bundle.CreateEquipamentoTitle_tipoEquipamento}" >
+                        <f:selectItems value="#{tipoEquipamentoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateEquipamentoLabel_fabricante}" for="fabricante" />
+                    <h:selectOneMenu id="fabricante" value="#{equipamentoController.selected.fabricante}" title="#{bundle.CreateEquipamentoTitle_fabricante}" >
+                        <f:selectItems value="#{fabricanteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateEquipamentoLabel_modelo}" for="modelo" />
+                    <h:selectOneMenu id="modelo" value="#{equipamentoController.selected.modelo}" title="#{bundle.CreateEquipamentoTitle_modelo}" >
+                        <f:selectItems value="#{modeloController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateEquipamentoLabel_configuracao}" for="configuracao" />
+                    <h:selectOneMenu id="configuracao" value="#{equipamentoController.selected.configuracao}" title="#{bundle.CreateEquipamentoTitle_configuracao}" >
+                        <f:selectItems value="#{configuracaoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateEquipamentoLabel_serial}" for="serial" />
+                    <h:inputText id="serial" value="#{equipamentoController.selected.serial}" title="#{bundle.CreateEquipamentoTitle_serial}" />
+                    <h:outputLabel value="#{bundle.CreateEquipamentoLabel_patrimonio}" for="patrimonio" />
+                    <h:inputText id="patrimonio" value="#{equipamentoController.selected.patrimonio}" title="#{bundle.CreateEquipamentoTitle_patrimonio}" />
+                    <h:outputLabel value="#{bundle.CreateEquipamentoLabel_area}" for="area" />
+                    <h:selectOneMenu id="area" value="#{equipamentoController.selected.area}" title="#{bundle.CreateEquipamentoTitle_area}" >
+                        <f:selectItems value="#{areaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateEquipamentoLabel_usuario}" for="usuario" />
+                    <h:inputText id="usuario" value="#{equipamentoController.selected.usuario}" title="#{bundle.CreateEquipamentoTitle_usuario}" />
+                    <h:outputLabel value="#{bundle.CreateEquipamentoLabel_observacao}" for="observacao" />
+                    <h:inputText id="observacao" value="#{equipamentoController.selected.observacao}" title="#{bundle.CreateEquipamentoTitle_observacao}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{equipamentoController.create}" value="#{bundle.CreateEquipamentoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{equipamentoController.prepareList}" value="#{bundle.CreateEquipamentoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateEquipamentoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

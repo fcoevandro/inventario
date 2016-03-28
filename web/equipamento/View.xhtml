@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEquipamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEquipamentoLabel_id}"/>
+                    <h:outputText value="#{equipamentoController.selected.id}" title="#{bundle.ViewEquipamentoTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewEquipamentoLabel_dependencia}"/>
+                    <h:outputText value="#{equipamentoController.selected.dependencia}" title="#{bundle.ViewEquipamentoTitle_dependencia}"/>
+                    <h:outputText value="#{bundle.ViewEquipamentoLabel_tipoEquipamento}"/>
+                    <h:outputText value="#{equipamentoController.selected.tipoEquipamento}" title="#{bundle.ViewEquipamentoTitle_tipoEquipamento}"/>
+                    <h:outputText value="#{bundle.ViewEquipamentoLabel_fabricante}"/>
+                    <h:outputText value="#{equipamentoController.selected.fabricante}" title="#{bundle.ViewEquipamentoTitle_fabricante}"/>
+                    <h:outputText value="#{bundle.ViewEquipamentoLabel_modelo}"/>
+                    <h:outputText value="#{equipamentoController.selected.modelo}" title="#{bundle.ViewEquipamentoTitle_modelo}"/>
+                    <h:outputText value="#{bundle.ViewEquipamentoLabel_configuracao}"/>
+                    <h:outputText value="#{equipamentoController.selected.configuracao}" title="#{bundle.ViewEquipamentoTitle_configuracao}"/>
+                    <h:outputText value="#{bundle.ViewEquipamentoLabel_serial}"/>
+                    <h:outputText value="#{equipamentoController.selected.serial}" title="#{bundle.ViewEquipamentoTitle_serial}"/>
+                    <h:outputText value="#{bundle.ViewEquipamentoLabel_patrimonio}"/>
+                    <h:outputText value="#{equipamentoController.selected.patrimonio}" title="#{bundle.ViewEquipamentoTitle_patrimonio}"/>
+                    <h:outputText value="#{bundle.ViewEquipamentoLabel_area}"/>
+                    <h:outputText value="#{equipamentoController.selected.area}" title="#{bundle.ViewEquipamentoTitle_area}"/>
+                    <h:outputText value="#{bundle.ViewEquipamentoLabel_usuario}"/>
+                    <h:outputText value="#{equipamentoController.selected.usuario}" title="#{bundle.ViewEquipamentoTitle_usuario}"/>
+                    <h:outputText value="#{bundle.ViewEquipamentoLabel_observacao}"/>
+                    <h:outputText value="#{equipamentoController.selected.observacao}" title="#{bundle.ViewEquipamentoTitle_observacao}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{equipamentoController.destroyAndView}" value="#{bundle.ViewEquipamentoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEquipamentoEditLink}"/>
+                <br />
+                <h:commandLink action="#{equipamentoController.prepareCreate}" value="#{bundle.ViewEquipamentoCreateLink}" />
+                <br />
+                <h:commandLink action="#{equipamentoController.prepareList}" value="#{bundle.ViewEquipamentoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEquipamentoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
