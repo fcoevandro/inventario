@@ -12,18 +12,23 @@
         <title>Relatorios em PDF</title>
     </head>
     <body>
+        <h1>RELATÓRIOS</h1>
         <form action="ChamadaRelatorio">
             <br>
             <br>
-            <input type="submit" value="Gerar Relatorio">
-            
+            Relatorio Geral:  <input type="submit" value="Gerar Relatorio Geral">
+            <br>
+            <br>
         </form>
-        
-        
+        <form action="RelatorioDependencia">
+            Dependencia:   <input type="text" name="nomeDependencia"> <input type="submit" value="Gerar Relatorio">
+        </form>
+        <br>
+        <br>
         <h1>RELATÓRIOS EM PDF</h1>
-	<br>
+        <br>
         Geração de relatório:
-	<br>
-	<a href="ChamadaRelatorio" target="_blank">Clique aqui para gerar o relatório!</a>
+        <br>
+        <a href="ChamadaRelatorio" target="_blank">Clique aqui para gerar o relatório!</a>
     </body>
 </html>

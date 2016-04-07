@@ -55,4 +55,34 @@ public class GeraRelatorio {
 		}
 		return retorno;
 	}
+        	public byte[] gerarPDFDependencia(String diretorio, String dependencia) {
+		byte[] retorno = null;
+		String relatorio = diretorio + "REL_DEPENDENCIA.jrxml";
+		//String imagem = diretorio + "cherry.jpg";
+		try {
+			// Faz a compilação do relatório
+			JasperReport jasperReport = JasperCompileManager.compileReport(relatorio);
+ 
+			// Cria o mapa de parâmetros que será enviado ao relatório
+			HashMap<String, Object> paramatros = new HashMap<String, Object>();
+                        paramatros.put("Nome_da_Dependencia", dependencia);
+ 
+			// Faz o apontamento para a imagem que aparece no top do relatório
+			//paramatros.put("logo", imagem);
+ 
+			// Preenche os dados do relatório
+			JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, paramatros, getConexao());
+                        
+			// Objeto para a ser retornado
+			retorno = JasperRunManager.runReportToPdf(jasperReport, paramatros, getConexao());
+ 
+			// Gera o arquivo PDF no caminho especificado
+			//JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/temp/Relatorio.pdf");
+
+ 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return retorno;
+	}
 }

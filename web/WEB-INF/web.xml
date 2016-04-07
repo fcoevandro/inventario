@@ -13,6 +13,10 @@
         <servlet-name>ChamadaRelatorio</servlet-name>
         <servlet-class>jsf.util.ChamadaRelatorio</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RelatorioDependencia</servlet-name>
+        <servlet-class>jsf.util.RelatorioDependencia</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -20,6 +24,10 @@
     <servlet-mapping>
         <servlet-name>ChamadaRelatorio</servlet-name>
         <url-pattern>/ChamadaRelatorio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioDependencia</servlet-name>
+        <url-pattern>/RelatorioDependencia</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
