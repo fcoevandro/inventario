@@ -3,8 +3,8 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="Nome_da_Dependencia" class="java.lang.String">
-		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	<parameter name="parametroArea" class="java.lang.String">
+		<defaultValueExpression><![CDATA["teop-1"]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[SELECT
@@ -39,7 +39,7 @@ FROM
      INNER JOIN `modelo` modelo ON equipamento.`MODELO_ID` = modelo.`ID`
      INNER JOIN `tipoequipamento` tipoequipamento ON equipamento.`TIPOEQUIPAMENTO_ID` = tipoequipamento.`ID`
 WHERE
-     dependencia_ID = (SELECT ID FROM dependencia WHERE DEPENDENCIA = $P{Nome_da_Dependencia})]]>
+     area_ID = (SELECT ID FROM area WHERE AREA = $P{parametroArea})]]>
 	</queryString>
 	<field name="area_ID" class="java.lang.Long"/>
 	<field name="area_AREA" class="java.lang.String"/>
@@ -74,25 +74,25 @@ WHERE
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="24" isBold="true" isUnderline="true"/>
 				</textElement>
-				<text><![CDATA[RELATÓRIO POR DEPENDENCIA]]></text>
+				<text><![CDATA[RELATÓRIO POR ÁREA]]></text>
 			</staticText>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="32" splitType="Stretch">
 			<textField>
-				<reportElement x="101" y="0" width="100" height="20" uuid="042952d9-1794-4211-ada8-40314acd66dd"/>
+				<reportElement x="49" y="0" width="100" height="20" uuid="042952d9-1794-4211-ada8-40314acd66dd"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{dependencia_DEPENDENCIA}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{area_AREA}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="0" width="101" height="20" uuid="28fe4715-9c43-4bcd-a983-fcd43a8f6062"/>
+				<reportElement x="0" y="0" width="49" height="20" uuid="28fe4715-9c43-4bcd-a983-fcd43a8f6062"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[DEPENDENCIA:]]></text>
+				<text><![CDATA[AREA]]></text>
 			</staticText>
 		</band>
 	</pageHeader>

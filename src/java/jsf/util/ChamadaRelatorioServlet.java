@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Administrador
  */
-public class ChamadaRelatorio extends HttpServlet {
+public class ChamadaRelatorioServlet extends HttpServlet {
 
  	private static final long serialVersionUID = 1L;
  

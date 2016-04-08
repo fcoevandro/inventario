@@ -10,24 +10,24 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>ChamadaRelatorio</servlet-name>
-        <servlet-class>jsf.util.ChamadaRelatorio</servlet-class>
+        <servlet-name>ChamadaRelatorioServlet</servlet-name>
+        <servlet-class>jsf.util.ChamadaRelatorioServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RelatorioDependencia</servlet-name>
-        <servlet-class>jsf.util.RelatorioDependencia</servlet-class>
+        <servlet-name>RelatorioSelecionadoServlet</servlet-name>
+        <servlet-class>jsf.util.RelatorioSelecionadoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ChamadaRelatorio</servlet-name>
-        <url-pattern>/ChamadaRelatorio</url-pattern>
+        <servlet-name>ChamadaRelatorioServlet</servlet-name>
+        <url-pattern>/ChamadaRelatorioServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>RelatorioDependencia</servlet-name>
-        <url-pattern>/RelatorioDependencia</url-pattern>
+        <servlet-name>RelatorioSelecionadoServlet</servlet-name>
+        <url-pattern>/RelatorioSelecionadoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
