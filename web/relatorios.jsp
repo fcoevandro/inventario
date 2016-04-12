@@ -17,7 +17,7 @@
 
     <body>
         <h1>RELATÓRIOS</h1>
-        <br>
+        <hr size="1">
         <br>
         <form action="RelatorioSelecionadoServlet">
             Relatorio por: <select name="nomeRelatorio">
@@ -31,37 +31,30 @@
             </select>
             <br><br>
             Valor: <input type="text" name="valorSelecionado"/> <input type="submit" value="Gerar Relatorio"/>
-            <br>            
+            <br><br>  
+            <hr size="1">
         </form>
-        <br>
         <form action="ChamadaRelatorioServlet">
             <br>
-            <br>
             Relatorio Geral:  <input type="submit" value="Gerar Relatorio Geral"/>
-            <br>
-            <br>
+            <br><br>
+            <hr size="1">
         </form>
         <br>
-        <br>
-        <br>
-        <br>
-        <h1>RELATÓRIOS GERAL POR:</h1>
-        <br>
-        <br>
-        <form action="RelatorioSelecionadoServlet">
-            ÁREA : <select name="nomeRelatorio1">
-                import java.sql.ResultSet;
+        <%
+            GeraRelatorio cn = new GeraRelatorio();
+            Statement stmt = null;
+            ResultSet rs = null;
+        %>
+        <form action="RelatorioGeralServlet">
+            DEPENDENCIA: <select name="nomeDependencia">
                 <%
-
-                    GeraRelatorio cn = new GeraRelatorio();
-                    Statement stmt = null;
-                    ResultSet rs = null;
-
                     try {
                         cn.Conectar();
-                        String sql = "SELECT * FROM area;";
+                        String sql = "SELECT * FROM dependencia;";
                         stmt = cn.conectar.createStatement();
                         rs = stmt.executeQuery(sql);
+                        out.println("<option></option>");
                         while (rs.next()) {
                             out.println("<option>" + rs.getString(2) + "</option>");
 
@@ -71,11 +64,118 @@
                     }
 
                 %>
-
-            </select><input type="submit" value="Gerar Relatorio"/>
+            </select>
             <br><br>
-            <br>            
-        </form>
+            AREA: <select name="nomeArea">
 
+                <%                    try {
+                        cn.Conectar();
+                        String sql = "SELECT * FROM area;";
+                        stmt = cn.conectar.createStatement();
+                        rs = stmt.executeQuery(sql);
+                        out.println("<option></option>");
+                        while (rs.next()) {
+                            out.println("<option>" + rs.getString(2) + "</option>");
+
+                        }
+                    } catch (Exception e) {
+                        out.print(e.toString());
+                    }
+
+                %>
+            </select>
+            <br><br>
+            TIPO DE EQUIPAMENTO: <select name="nomeTipo">
+
+                <%                    try {
+                        cn.Conectar();
+                        String sql = "SELECT * FROM tipoequipamento;";
+                        stmt = cn.conectar.createStatement();
+                        rs = stmt.executeQuery(sql);
+                        out.println("<option></option>");
+                        while (rs.next()) {
+                            out.println("<option>" + rs.getString(2) + "</option>");
+
+                        }
+                    } catch (Exception e) {
+                        out.print(e.toString());
+                    }
+
+                %>
+            </select>
+
+            <br><br>
+            FABRICANTE: <select name="nomeFabricante">
+
+                <%                    try {
+                        cn.Conectar();
+                        String sql = "SELECT * FROM fabricante;";
+                        stmt = cn.conectar.createStatement();
+                        rs = stmt.executeQuery(sql);
+                        out.println("<option></option>");
+                        while (rs.next()) {
+                            out.println("<option>" + rs.getString(2) + "</option>");
+
+                        }
+                    } catch (Exception e) {
+                        out.print(e.toString());
+                    }
+
+                %>
+            </select>
+            <br><br>
+            MODELO: <select name="nomeModelo">
+
+                <%                    try {
+                        cn.Conectar();
+                        String sql = "SELECT * FROM modelo;";
+                        stmt = cn.conectar.createStatement();
+                        rs = stmt.executeQuery(sql);
+                        out.println("<option></option>");
+                        while (rs.next()) {
+                            out.println("<option>" + rs.getString(2) + "</option>");
+
+                        }
+                    } catch (Exception e) {
+                        out.print(e.toString());
+                    }
+
+                %>
+            </select>
+            <br><br>
+            CONFIGURAÇÃO: <select name="nomeConfiguracao">
+
+                <%                    try {
+                        cn.Conectar();
+                        String sql = "SELECT * FROM configuracao;";
+                        stmt = cn.conectar.createStatement();
+                        rs = stmt.executeQuery(sql);
+                        out.println("<option></option>");
+                        while (rs.next()) {
+                            out.println("<option>" + rs.getString(2) + "</option>");
+
+                        }
+                    } catch (Exception e) {
+                        out.print(e.toString());
+                    }
+
+                %>
+            </select>
+            <br><br>
+            PATRIMONIO: <input type="text" name="nomePatrimonio"/>
+            <br><br>
+            USUARIO: <input type="text" name="nomeUsuario"/>
+            <br><br>             
+            SERIAL: <input type="text" name="nomeSerial"/>
+            <br><br> 
+            OBSERVAÇÃO: <input type="text" name="nomeObservacao"/>
+            <br><br> 
+            <input type="submit" value="Gerar Relatorio"/>
+            <br>
+            <br>
+            <hr size="1">
+            <br> 
+        </form>
+        <br>
     </body>
 </html>

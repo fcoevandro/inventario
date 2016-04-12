@@ -33,7 +33,7 @@ public class RelatorioSelecionadoServlet extends HttpServlet {
             String relatorio = request.getParameter("nomeRelatorio");
             String pathRelatorio = diretorio + "rel" + relatorio + ".jrxml";
             String parametro = request.getParameter("valorSelecionado");
-            System.out.print("Imprimindo relatorio" + relatorio + " no endereco " + pathRelatorio + " com parametro " + parametro);
+
             GeraRelatorio geraRelatorio = new GeraRelatorio();
 
             // Chama o método que gera um array de bytes com o

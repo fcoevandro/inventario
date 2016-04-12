@@ -8,7 +8,6 @@ package jsf.util;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -42,20 +41,14 @@ public class RelatorioGeralServlet extends HttpServlet {
             String parametroUsuario = request.getParameter("nomeUsuario");
             String parametroObservacao = request.getParameter("nomeObservacao");
             String parametroSerial = request.getParameter("nomeSerial");
-            System.out.print("Imprimindo relatorio no endereco " + pathRelatorio + " com parametros: "
-                    + "Dependencia: " + parametroDependencia
-                    + ", Area: " + parametroArea + ", Tipo: " + parametroTipoequipamento
-                    + ", Fabricante: " + parametroFabricante + ", Modelo: " + parametroModelo
-                    + ", Configuração: " + parametroConfiguracao + ", Serial: " + parametroSerial + ", Patrimonio: " + parametroPatrimonio
-                    + ", Usuario: " + parametroUsuario + ", Observação: " + parametroObservacao);
-
+                    
             GeraRelatorio geraRelatorio = new GeraRelatorio();
 
             // Chama o método que gera um array de bytes com o
             // conteúdo do arquivo PDF
             byte[] pdf = geraRelatorio.gerarPDFGeral(parametroDependencia, parametroArea, parametroTipoequipamento, parametroFabricante,
                     parametroModelo, parametroConfiguracao, parametroUsuario, parametroPatrimonio, parametroObservacao, parametroSerial, pathRelatorio);
-
+                    
             OutputStream outStream = response.getOutputStream();
             response.setHeader("application/pdf", "Content-Type");
             //response.setHeader("Content-Disposition", "inline, filename=RelatorioAluno.pdf");

@@ -76,6 +76,7 @@ public class GeraRelatorio {
             //System.out.print("Imprimindo relatorio" + relatorio + " no endereco " + pathRelatorio + " com parametro " + parametro + " para " + parRelatorio);
             HashMap<String, Object> par = new HashMap<String, Object>();
             par.put(parRelatorio, parametro);
+            System.out.print(par);
 
             // Faz o apontamento para a imagem que aparece no top do relatório
             //paramatros.put("logo", imagem);
@@ -105,15 +106,15 @@ public class GeraRelatorio {
             // Cria o mapa de parâmetros que será enviado ao relatório
             //System.out.print("Imprimindo relatorio" + relatorio + " no endereco " + pathRelatorio + " com parametro " + parametro + " para " + parRelatorio);
             HashMap<String, Object> par = new HashMap<String, Object>();
-            par.put(parametroDependencia, parametroDependencia);
-            par.put(parametroArea, parametroArea);
-            par.put(parametroTipoequipamento, parametroTipoequipamento);
-            par.put(parametroFabricante, parametroFabricante);
-            par.put(parametroModelo, parametroConfiguracao);
-            par.put(parametroUsuario, parametroUsuario);
-            par.put(parametroPatrimonio, parametroPatrimonio);
-            par.put(parametroObservacao, parametroObservacao);
-            par.put(parametroSerial, parametroSerial);
+            par.put("parametroDependencia", parametroDependencia);
+            par.put("parametroArea", parametroArea);
+            par.put("parametroTipoequipamento", parametroTipoequipamento);
+            par.put("parametroFabricante", parametroFabricante);
+            par.put("parametroModelo", parametroConfiguracao);
+            par.put("parametroUsuario", parametroUsuario);
+            par.put("parametroPatrimonio", parametroPatrimonio);
+            par.put("parametroObservacao", parametroObservacao);
+            par.put("parametroSerial", parametroSerial);
             // Faz o apontamento para a imagem que aparece no top do relatório
             //paramatros.put("logo", imagem);
             // Preenche os dados do relatório
@@ -129,4 +130,5 @@ public class GeraRelatorio {
         }
         return retorno;
     }
+    
 }
